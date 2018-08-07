@@ -86,3 +86,80 @@ ul:not(:first-child),
 ol:not(:first-child),
 blockquote:not(:first-child) {
   margin-top: 1.2rem; }
+
+html {
+  font-size: 16px; }
+
+body {
+  background: #f3f6f7;
+  color: #3b3c3f;
+  font-size: inherit;
+  line-height: 1.7em;
+  font-family: "Montserrat", "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400; }
+
+@media all and (min-width: 1500px) {
+  html {
+    font-size: calc(14px + 0.12vw); } }
+
+@media all and (max-width: 1099px) {
+  html {
+    font-size: 15px; } }
+
+.narrower-text {
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  max-width: 50em; }
+
+pre.code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  margin: 1.5em 0;
+  text-align: left;
+  background: #dbe4e7;
+  color: #606267;
+  padding: 1.2em 1.4em;
+  padding-left: 4em;
+  font-size: 1rem;
+  counter-reset: line;
+  white-space: pre-wrap;
+  border-radius: 0.4rem; }
+  pre.code code {
+    font-family: inherit;
+    position: relative;
+    line-height: 1.2em;
+    height: 1.2em;
+    white-space: pre-wrap; }
+    pre.code code:before {
+      counter-increment: line;
+      content: counter(line);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -3.5rem;
+      width: 2em;
+      line-height: 1.2em;
+      color: #b0c4ca;
+      text-align: right;
+      -webkit-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none; }
+  pre.code.javascript .var {
+    color: #db7093; }
+  pre.code.javascript .func {
+    color: #44a1e0; }
+  pre.code.javascript .inb {
+    color: #4eb6c6; }
+  pre.code.javascript .lit {
+    color: #f60684; }
+  pre.code.javascript .new {
+    color: #ec860e; }
+  pre.code.javascript .obj {
+    color: #eb26b6; }
+  pre.code.javascript em {
+    font-weight: inherit;
+    font-style: inherit;
+    color: #5f9ea0; }
+  pre.code .comment {
+    color: #97b1ba; }

@@ -7,3 +7,8 @@
 // Load in defaults
 // -----------------------------------------
 @import 'defaults/__init';
+
+// Load templates/content
+// -----------------------------------------
+@import 'templates/__init';
+@import 'content/__init';

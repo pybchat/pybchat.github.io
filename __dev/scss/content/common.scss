@@ -1,0 +1,37 @@
+//  common.scss
+// -----------------------------------------
+
+html {
+  font-size: 16px;
+  }
+
+body {
+  background: $background;
+  color: $text;
+  font-size: inherit;
+  line-height: 1.7em;
+  font-family: $font-body, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: $regular;
+  }
+
+
+
+
+// Styles for smaller screens
+// -----------------------------------------
+
+@include bounds($hd, infinity) {
+  html {
+    font-size: calc(14px + 0.12vw);
+    }
+  }
+
+@include bounds(0, $desktop) {
+  html {
+    font-size: 15px;
+    }
+  }
+
+@include bounds(0, $mobile) {
+  // add any mobile-related styles here
+  }

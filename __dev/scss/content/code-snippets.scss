@@ -1,0 +1,81 @@
+// Code snippets
+// -----------------------------------------
+
+.narrower-text {
+  margin: 0 auto;
+  text-align: center;
+  width: 90%;
+  max-width: 50em;
+  }
+
+pre.code {
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  margin: 1.5em 0;
+  text-align: left;
+  background: darken($background, 8%);
+  color: lighten($text, 15%);
+  padding: 1.2em 1.4em;
+  padding-left: 4em;
+  font-size: 1rem;
+  counter-reset: line;
+  white-space: pre-wrap;
+  border-radius: 0.4rem;
+
+  code {
+    font-family: inherit;
+    position: relative;
+    line-height: 1.2em;
+    height: 1.2em;
+    white-space: pre-wrap;
+
+    &:before {
+      counter-increment: line;
+      content: counter(line);
+      display: block;
+      position: absolute;
+      top: 0;
+      left: -3.5rem;
+      width: 2em;
+      line-height: 1.2em;
+      color: darken($background, 22%);
+      text-align: right;
+      user-select: none;
+      }
+    }
+
+  &.javascript {
+    .var {
+      color: #db7093;
+      }
+
+    .func {
+      color: #44a1e0;
+      }
+
+    .inb {
+      color: #4eb6c6;
+      }
+
+    .lit {
+      color: #f60684;
+      }
+
+    .new {
+      color: #ec860e;
+      }
+
+    .obj {
+      color: #eb26b6;
+      }
+
+    em {
+      font-weight: inherit;
+      font-style: inherit;
+      color: #5f9ea0;
+      }
+    }
+
+  .comment {
+    color: darken($background, 30%);
+    }
+  }
