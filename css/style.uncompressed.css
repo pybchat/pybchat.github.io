@@ -103,6 +103,9 @@ header {
     min-width: 10rem;
     text-align: right; }
   header .burger {
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
     display: block;
     float: left;
     width: 50px;
