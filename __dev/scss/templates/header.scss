@@ -1,0 +1,200 @@
+// Header style
+// -----------------------------------------
+
+$menu-width: 220px;
+$menu-transition-speed: 0.3s;
+
+header {
+  $height: 60px;
+  $logo-size: 46px;
+
+  background: $background;
+  box-shadow: 0 10px 30px -10px rgba(darken($background, 45%), 0.15);
+  z-index: 99999;
+  min-height: $height;
+  padding: 5px 0;
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
+
+  .social-icons {
+    float: right;
+    font-size: 0.9em;
+    min-width: 10rem;
+    text-align: right;
+    }
+
+  .burger {
+    display: block;
+    float: left;
+    width: 50px;
+    height: $height;
+    position: relative;
+    z-index: 999999999999;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border-radius: 0;
+    min-width: 10rem;
+    text-align: left;
+
+    &:hover,
+    &:focus {
+      background: transparent;
+      outline: none;
+      }
+
+    span {
+      display: block;
+      background: $text;
+      position: absolute;
+      height: 2px;
+      width: 24px;
+      left: 10px;
+      top: calc(50% - 1px);
+      transition: transform $menu-transition-speed, background-color 0.15s;
+
+      &:nth-child(1) {
+        top: calc(50% - 9px);
+        }
+
+      &:nth-child(3) {
+        top: calc(50% + 7px);
+        }
+      }
+    }
+
+  .logo {
+    float: left;
+    height: $logo-size;
+    width: auto;
+    padding-bottom: 2px;
+    opacity: 0.3;
+    transition: opacity 0.15s;
+
+    &:hover {
+      opacity: 1;
+      }
+
+    img {
+      height: $logo-size;
+      width: auto;
+      }
+    }
+  }
+
+
+// Mobile menu structure
+// -----------------------------------------
+
+nav {
+  $background: #3c3e42;
+  $color: #fff;
+
+  background: $background;
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -$menu-width;
+  width: $menu-width;
+  height: 100vh;
+  box-sizing: border-box;
+  padding: 1.5em 2em;
+  overflow: auto;
+  z-index: 9999999;
+  -webkit-overflow-scrolling: touch;
+
+  a {
+    display: block;
+    color: $color;
+    font-weight: $regular;
+    background: none;
+    font-size: 1.15em;
+    padding: 0.3em 0;
+    border: 0;
+
+    &.active,
+    &:hover {
+      color: $color;
+      background: inherit;
+      }
+    }
+
+  ul {
+    list-style: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+
+    li {
+      display: block;
+      padding: 0;
+      margin: 0;
+      width: 100%;
+      }
+    }
+  }
+
+
+
+
+// Menu interaction
+// -----------------------------------------
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+	transition: transform $menu-transition-speed,
+              background-color 0.5s 0.2s,
+              box-shadow 0.5s 0.2s;
+	}
+
+#content {
+  transition: transform $menu-transition-speed,
+              opacity $menu-transition-speed;
+  box-sizing: border-box;
+  padding-top: 70px;
+  }
+
+body {
+  &.no-transition {
+    #content, header {
+      transition: none;
+      }
+    }
+
+  &.menu {
+    #content {
+      overflow: hidden;
+      opacity: 0.5;
+      pointer-events: none;
+      }
+
+    #content,
+    header {
+      transform: translate($menu-width, 0);
+      }
+
+    .burger span {
+      top: 50%;
+
+      &:nth-child(1) {
+        transform: rotate(225deg);
+        }
+
+      &:nth-child(2) {
+        transform: scale(0, 1);
+        }
+
+      &:nth-child(3) {
+        transform: rotate(135deg);
+        }
+      }
+    }
+  }

@@ -1,4 +1,4 @@
-//  common.scss
+// common.scss
 // -----------------------------------------
 
 html {
@@ -6,12 +6,21 @@ html {
   }
 
 body {
-  background: $background;
   color: $text;
   font-size: inherit;
   line-height: 1.7em;
   font-family: $font-body, 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: $regular;
+  }
+
+html, body {
+  overflow-x: hidden;
+  background: #333
+  }
+
+#content {
+  background: $background;
+  color: $text;
   }
 
 
