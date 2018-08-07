@@ -68,11 +68,11 @@ gulp.task('scss', () => {
 });
 
 gulp.task('images', () => {
-  gulp.src([`${dev}images/**/*.png`, dev + `${dev}images/**/*.jpg`, !`${dev}images/sprites**/*`])
+  gulp.src([`${dev}images/**/*.png`, `${dev}images/**/*.jpg`, `!${dev}images/sprites/**/*`])
     .pipe(webp())
     .pipe(gulp.dest(`${dist}images/`));
 
-  gulp.src([`${dev}images/**/*`, !`${dev}images/sprites**/*`])
+  gulp.src([`${dev}images/**/*`, `!${dev}images/sprites/**/*`])
     .pipe(plumber())
     .pipe(gulp.dest(`${dist}images/`))
 
@@ -93,7 +93,7 @@ gulp.task('images', () => {
         }
       }
     }))
-    .pipe(gulp.dest(_dist_ + 'img/'));
+    .pipe(gulp.dest(`${dist}images/`));
 });
 
 gulp.task('html', function() {
@@ -105,7 +105,7 @@ gulp.task('html', function() {
 
 // Autmate tasks
 gulp.task('default', ['scss', 'javascript', 'images', 'html'], () => {
-  gulp.watch(`${dev}scss/**/*.scss`, ['scss']);
+  gulp.watch([`${dev}scss/**/*.scss`], ['scss']);
   gulp.watch([`${dev}js/**/*.js`, `${dev}inlinejs/**/*.js`], ['javascript']);
   gulp.watch([`${dev}images/**/*`], ['images']);
   gulp.watch([`${dev}html/**/*`], ['html']);

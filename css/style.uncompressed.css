@@ -323,3 +323,9 @@ pre.code {
     color: #5f9ea0; }
   pre.code .comment {
     color: #97b1ba; }
+
+.main-logo {
+  display: block;
+  width: 80%;
+  max-width: 283px;
+  margin: 0 auto 3em; }
