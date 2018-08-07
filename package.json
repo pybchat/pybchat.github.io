@@ -1,0 +1,35 @@
+{
+  "name": "pybchat",
+  "version": "1.0.0",
+  "description": "GitHub repository for the PybChat website",
+  "main": "index.js",
+  "scripts": {
+    "test": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pybchat/pybchat.github.io.git"
+  },
+  "author": "PybChat",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pybchat/pybchat.github.io/issues"
+  },
+  "homepage": "https://github.com/pybchat/pybchat.github.io#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^5.0.0",
+    "gulp-babel": "^7.0.1",
+    "gulp-clean-css": "^3.9.4",
+    "gulp-concat": "^2.6.1",
+    "gulp-plumber": "^1.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-tag-include-html": "^1.4.8",
+    "gulp-uglify": "^3.0.1",
+    "gulp-webp": "^3.0.0"
+  }
+}
