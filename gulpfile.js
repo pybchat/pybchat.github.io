@@ -10,6 +10,7 @@ let autoprefixer = require('gulp-autoprefixer');
 let babel = require('gulp-babel');
 let webp = require('gulp-webp');
 let include = require('gulp-tag-include-html');
+let svgsprite = require('gulp-svg-sprite');
 
 // Format source URL
 const dev = '__dev/';
@@ -67,13 +68,32 @@ gulp.task('scss', () => {
 });
 
 gulp.task('images', () => {
-  gulp.src([`${dev}images/**/*.png`, dev + `${dev}images/**/*.jpg`])
+  gulp.src([`${dev}images/**/*.png`, dev + `${dev}images/**/*.jpg`, !`${dev}images/sprites**/*`])
     .pipe(webp())
     .pipe(gulp.dest(`${dist}images/`));
 
-  gulp.src([`${dev}images/**/*`])
+  gulp.src([`${dev}images/**/*`, !`${dev}images/sprites**/*`])
     .pipe(plumber())
     .pipe(gulp.dest(`${dist}images/`))
+
+  // Create SVG sprites
+  gulp.src([`${dev}images/sprites/**/*`])
+    .pipe(plumber())
+    .pipe(svgsprite({
+      mode: {
+        symbol: {
+          render: {
+            css: false,
+            scss: false
+          },
+          dest: '',
+          prefix: '.sprite-%s',
+          sprite: 'icons.svg',
+          example: false
+        }
+      }
+    }))
+    .pipe(gulp.dest(_dist_ + 'img/'));
 });
 
 gulp.task('html', function() {

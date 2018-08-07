@@ -4,11 +4,12 @@
  *  Copyright (c) PybChat, 2018
  */
 
-// Load in defaults
+// Load in defaults (resets, etc.)
 // -----------------------------------------
 @import 'defaults/__init';
 
-// Load templates/content
+// Load templates/content/pages
 // -----------------------------------------
 @import 'templates/__init';
 @import 'content/__init';
+@import 'pages/__init';
