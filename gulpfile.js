@@ -113,13 +113,13 @@ gulp.task('default', ['scss', 'javascript', 'images', 'html'], () => {
 
 
 // Custom compiling layouts
-console.log('\x1b[33m --------------------------------------------');
-console.log('  PybChat v1.0');
-console.log(' --------------------------------------------\x1b[0m');
+console.log(`\x1b[33m --------------------------------------------`);
+console.log(`  PybChat v1.0`);
+console.log(` --------------------------------------------\x1b[0m`);
 
 // Customised SCSS error messages
 function scss_error(e) {
-  console.log('\x1b[41m WARNING \x1b[0m');
-  console.log(' Error:', e.messageOriginal, '(line', e.line, 'column', e.column + ')');
-  console.log(' \x1b[33m' + e.relativePath + '\x1b[0m');
+  console.log(`\x1b[41m WARNING \x1b[0m`);
+  console.log(` Error: ${e.messageOriginal} (line ${e.line} column ${e.column})`);
+  console.log(` \x1b[33m${e.relativePath}\x1b[0m`);
 }
