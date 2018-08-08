@@ -9,12 +9,13 @@
   a {
     display: block;
     margin-right: 8px;
+    position: relative;
     }
 
   svg {
     display: block;
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
     }
 
   .facebook {
@@ -31,5 +32,9 @@
 
   .instagram {
     fill: #ea348a;
+    }
+
+  span {
+    display: none;
     }
   }

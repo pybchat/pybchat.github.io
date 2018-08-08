@@ -270,11 +270,12 @@ html, body {
   justify-content: flex-end; }
   .social-icons a {
     display: block;
-    margin-right: 8px; }
+    margin-right: 8px;
+    position: relative; }
   .social-icons svg {
     display: block;
-    width: 26px;
-    height: 26px; }
+    width: 24px;
+    height: 24px; }
   .social-icons .facebook {
     fill: #3f60a4; }
   .social-icons .twitter {
@@ -283,6 +284,8 @@ html, body {
     fill: #e8281e; }
   .social-icons .instagram {
     fill: #ea348a; }
+  .social-icons span {
+    display: none; }
 
 .width {
   display: block;
