@@ -1,0 +1,33 @@
+// headers
+// -----------------------------------------
+
+h1,
+h2,
+h3,
+h4 {
+  display: block;
+  font-family: 'Baloo Bhaina', sans-serif;
+  margin: 3rem 0 0.6rem;
+  line-height: 1.1em;
+  color: $text;
+
+  + p {
+    margin-top: 0 !important;
+    }
+
+  &:first-child {
+    margin-top: 0;
+    }
+  }
+
+h1, h2 {
+  font-size: 2.7em;
+  }
+
+h3 {
+  font-size: 1.6em;
+  }
+
+h4 {
+  font-size: 1.1em;
+  }

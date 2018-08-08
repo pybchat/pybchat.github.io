@@ -6,10 +6,10 @@
 
 // Load in defaults (resets, etc.)
 // -----------------------------------------
-@import 'defaults/__init';
+@import '__defaults/__init';
 
 // Load templates/content/pages
 // -----------------------------------------
 @import 'templates/__init';
-@import 'content/__init';
 @import 'pages/__init';
+@import 'page-sections/__init';

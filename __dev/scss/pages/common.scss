@@ -15,12 +15,13 @@ body {
 
 html, body {
   overflow-x: hidden;
-  background: #333
+  background: darken($background, 5%);
   }
 
 #content {
   background: $background;
   color: $text;
+  min-height: 100vh;
   }
 
 

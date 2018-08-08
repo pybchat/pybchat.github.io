@@ -226,19 +226,16 @@ body.menu .burger span {
     -webkit-transform: rotate(135deg);
             transform: rotate(135deg); }
 
-.width {
-  display: block;
-  width: 94%;
-  max-width: 84em;
-  text-align: center;
-  margin: 0 auto; }
-  .width.padded {
-    padding: 3.5em 0; }
+footer {
+  margin-top: 3em;
+  padding: 1em 0;
+  color: #a7bdc4; }
 
-.content {
-  text-align: left; }
-  .content.padded {
-    padding: 3.5em 0; }
+.main-logo {
+  display: block;
+  width: 80%;
+  max-width: 283px;
+  margin: 0 auto 3em; }
 
 html {
   font-size: 16px; }
@@ -252,11 +249,12 @@ body {
 
 html, body {
   overflow-x: hidden;
-  background: #333; }
+  background: #e4ebed; }
 
 #content {
   background: #f3f6f7;
-  color: #3b3c3f; }
+  color: #3b3c3f;
+  min-height: 100vh; }
 
 @media all and (min-width: 1500px) {
   html {
@@ -266,15 +264,43 @@ html, body {
   html {
     font-size: 15px; } }
 
-.narrower-text {
-  margin: 0 auto;
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+  .social-icons a {
+    display: block;
+    margin-right: 8px; }
+  .social-icons svg {
+    display: block;
+    width: 26px;
+    height: 26px; }
+  .social-icons .facebook {
+    fill: #3f60a4; }
+  .social-icons .twitter {
+    fill: #09d3f1; }
+  .social-icons .gplus {
+    fill: #e8281e; }
+  .social-icons .instagram {
+    fill: #ea348a; }
+
+.width {
+  display: block;
+  width: 94%;
+  max-width: 72em;
   text-align: center;
-  width: 90%;
-  max-width: 50em; }
+  margin: 0 auto; }
+  .width.padded {
+    padding: 3.5em 0; }
+
+.content {
+  text-align: left; }
+  .content.padded {
+    padding: 3.5em 0; }
 
 pre.code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  margin: 1.5em 0;
+  margin: 0;
   text-align: left;
   background: #dbe4e7;
   color: #606267;
@@ -324,8 +350,55 @@ pre.code {
   pre.code .comment {
     color: #97b1ba; }
 
-.main-logo {
+h1,
+h2,
+h3,
+h4 {
   display: block;
-  width: 80%;
-  max-width: 283px;
-  margin: 0 auto 3em; }
+  font-family: 'Baloo Bhaina', sans-serif;
+  margin: 3rem 0 0.6rem;
+  line-height: 1.1em;
+  color: #3b3c3f; }
+  h1 + p,
+  h2 + p,
+  h3 + p,
+  h4 + p {
+    margin-top: 0 !important; }
+  h1:first-child,
+  h2:first-child,
+  h3:first-child,
+  h4:first-child {
+    margin-top: 0; }
+
+h1, h2 {
+  font-size: 2.7em; }
+
+h3 {
+  font-size: 1.6em; }
+
+h4 {
+  font-size: 1.1em; }
+
+p a {
+  color: inherit;
+  font-weight: 600;
+  background: transparent url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="5" viewBox="0 0 120 5" preserveAspectRatio="none"><g><rect x="0" y="0" width="120" height="5" style="fill:#ffd648;stroke-width:0;stroke:transparent;"/></g></svg>') no-repeat bottom;
+  background-size: 100% 2px;
+  transition: background-size 0.1s; }
+  p a:hover {
+    background-size: 100% 100%; }
+
+a {
+  color: #4c8fc5; }
+
+.code-wrapper {
+  margin: 1.5em auto 4em;
+  text-align: center;
+  width: 90%;
+  max-width: 45em; }
+
+.intro-copy {
+  text-align: center;
+  width: 90%;
+  max-width: 60em;
+  margin: 2em auto; }

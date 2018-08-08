@@ -14,13 +14,29 @@
         <img src="/images/pyb-chat-logo.png" alt="Pyb Chat | Logo" class="main-logo" />
       </picture>
 
-      <div class="narrower-text">
-        <pre class="code javascript"></pre>
-      </div>
+      <main>
+        <section class="code-wrapper">
+          <pre class="code javascript"><code><span class="var">let</span> <span class="func">readable_date</span> = (d) <span class="var">=&gt;</span> {</code>
+<code>  <span class="var">let</span> _date = <span class="var">new</span> <span class="new">Date</span>(<span class="new">Date</span>.<span class="inb">parse</span>(d));</code>
+<code>  <span class="var">return</span> <span class="obj">_date</span>.<span class="func">toDateString</span>()</code>
+<code>};</code>
+<code></code>
+<code><span class="var">function</span> <span class="func">Meeting</span>(location, d) {</code>
+<code>  <span class="obj">document</span>.<span class="obj">write</span>(<em>`The next meeting is on <span class="lit">${</span><span class="func">readable_date</span>(</em>d<em>)<span class="lit">}</span> at <span class="lit">${</span>location<span class="lit">}</span>`</em>);</code>
+<code>}</code>
+<code></code>
+<code><span class="var">let</span> next_meeting = <span class="var">new</span> <span class="new">Meeting</span>(<em>'TBA'</em>, <em>'1970-01-01'</em>);</code>
+<code class="comment">&gt;&gt; The next meeting is on Thu Jan 01 1970 at TBA</code>
+</pre>
+        </section>
 
-      <h1>Coming soon</h1>
+        <section class="intro-copy">
+          <h1>Welcome to PybChat</h1>
 
-      <p>This website is still under construction. Why not check us out on <a href="https://github.com/pybchat/" rel="noopener">GitHub</a> and contribute?</p>
+          <p>Welcome to PybChat - a new initiative aimed at promoting local meetups for developers, designers and everyone else in the digital field to increase collaboration, cooperation and industry-wide engagement. This website is still under development. Why not check us out on <a href="https://github.com/pybchat/" rel="noopener">GitHub</a> and contribute?</p>
+        </section>
+      </main>
+
     </div>
   </div>
 

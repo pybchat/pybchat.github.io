@@ -1,16 +1,9 @@
 // Code snippets
 // -----------------------------------------
 
-.narrower-text {
-  margin: 0 auto;
-  text-align: center;
-  width: 90%;
-  max-width: 50em;
-  }
-
 pre.code {
   font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
-  margin: 1.5em 0;
+  margin: 0;
   text-align: left;
   background: darken($background, 8%);
   color: lighten($text, 15%);
