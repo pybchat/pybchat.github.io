@@ -13,7 +13,7 @@ pyb.preloader_image.src = pyb.BASE_URL + 'img/loading.svg';
 // Run
 (function(){
   let typeTextWrapper = document.getElementById('typer');
-  let typeTextContent = `let readableDate = d => new Date(Date.parse(d)).toDateString();
+  let typeTextContent = `let readableDate = (d) => new Date(Date.parse(d)).toDateString();
 
 function Meeting(location, date){
   document.write(\`The next meeting is on \${readableDate(date)} at \${location}\`);
