@@ -1,4 +1,5 @@
 import Typer from './type.js';
+import highlightSyntax from './syntax.js';
 
 // Create a global 'pyb' wrapper
 window.pyb = {};
@@ -13,6 +14,7 @@ pyb.preloader_image.src = pyb.BASE_URL + 'img/loading.svg';
 // Run
 (function(){
   let typeTextWrapper = document.getElementById('typer');
+  let formatter = text => highlightSyntax(text);
   let typeTextContent = `let readableDate = (d) => new Date(Date.parse(d)).toDateString();
 
 function Meeting(location, date){
@@ -21,5 +23,5 @@ function Meeting(location, date){
 
 let nextMeeting = new Meeting('TBA', '1970-01-01')`;
 
-  new Typer(typeTextWrapper, typeTextContent).type();
+  new Typer(typeTextContent, typeTextWrapper, [30, 200], formatter).type();
 })();

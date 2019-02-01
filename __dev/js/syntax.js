@@ -1,7 +1,8 @@
 /**
- *  @function highlightSyntax - a 'budget' syntax highlighter for JavaScript - for visual purposes only
+ *  @function highlightSyntax - a 'budget' syntax highlighter for JavaScript
+ *                              for visual purposes only - very tempermental
+ *  @param {String} input - a string that can be formatted via regex
  *  @author Oliver Hepworth-Bell
- *  @copyright Oliver Hepworth-Bell, 2019
  */
 export default function highlightSyntax(input){
   let regexTests = [

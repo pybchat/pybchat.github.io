@@ -1,18 +1,30 @@
-import highlightSyntax from './syntax.js';
-
 /**
  *  @class
  *  @function Typer - a micro typing class
+ *  
+ *  @param {String} text - a string that can be typed 
+ *  @param {element} wrapper - an element to write to
+ *  @param {Array} speed - an array of two numbers, min and max type speed (e.g. [50, 150])
+ *  @param {Function} formatter - a function to format the text (optional)
+ *  
  *  @author Oliver Hepworth-Bell
- *  @copyright Oliver Hepworth-Bell, 2019
  */
 export default class Typer {
-  constructor(output, text) {
-    this.output = output;
+  constructor(text, wrapper, speed = [30, 150], formatter = false) {
+    this.wrapper = wrapper;
     this.text = text;
+    this.formatter = formatter;
+    this.minTypeSpeed = parseInt(speed[0]) || 30;
+    this.maxTypeSpeed = parseInt(speed[1]) || 150;
     this.characterCount = text.length;
     this.currentCharacter = 0;
-    this.typeSpeed = 150;
+
+    this.checkValidFormatter();
+  }
+
+  checkValidFormatter() {
+    // Ensure 'alter' is a valid function
+    if (!this.formatter || typeof this.formatter !== 'function') this.formatter = text => text;
   }
 
   type() {
@@ -21,14 +33,13 @@ export default class Typer {
     let typeLetter = () => {
       this.currentCharacter++;
 
-      this.output.innerHTML = highlightSyntax(this.text.substring(0, this.currentCharacter) + '_');
+      this.wrapper.innerHTML = this.formatter(this.text.substring(0, this.currentCharacter) + '_');
 
       // Stop when reaching end of 'this.text'
       if (this.currentCharacter >= this.characterCount) return this.blinkCursor();
 
-      // Get a random timeout for next keystroke, to make it more natural
-      // Between 30ms and this.typeSpeed (default: 200ms) per keystroke
-      timeBetweenCharacters = Math.max(this.typeSpeed * Math.random(), 30);
+      // Set a timeout for next keystroke, randomised to make it more natural
+      timeBetweenCharacters = Math.max(this.maxTypeSpeed * Math.random(), this.minTypeSpeed);
 
       // Type next character
       setTimeout(() => {
@@ -44,14 +55,14 @@ export default class Typer {
     let flag = true;
 
     // Cache syntax results
-    let cursorON = highlightSyntax(this.text + '_');
-    let cursorOff = highlightSyntax(this.text);
+    let cursorON = this.formatter(this.text + '_');
+    let cursorOff = this.formatter(this.text);
 
     // Blink the cursor at the end of the string
     setInterval(() => {
       flag = flag ? false : true;
 
-      this.output.innerHTML = flag ? cursorON : cursorOff;
+      this.wrapper.innerHTML = flag ? cursorON : cursorOff;
     }, 700);
   }
 }
