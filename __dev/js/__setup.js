@@ -9,7 +9,7 @@ pyb.url = '/';
 
 // Preload 'loading' image
 pyb.preloader_image = new Image();
-pyb.preloader_image.src = pyb.BASE_URL + 'img/loading.svg';
+pyb.preloader_image.src = pyb.url + 'img/loading.svg';
 
 // Run
 (function(){
