@@ -4,13 +4,13 @@ let rename = require('gulp-rename');
 let uglify = require('gulp-uglify');
 let sass = require('gulp-sass');
 let plumber = require('gulp-plumber');
-let concat = require('gulp-concat');
 let minifycss = require('gulp-clean-css');
 let autoprefixer = require('gulp-autoprefixer');
 let babel = require('gulp-babel');
 let webp = require('gulp-webp');
 let include = require('gulp-tag-include-html');
 let svgsprite = require('gulp-svg-sprite');
+let webpack = require('webpack-stream');
 
 // Format source URL
 const dev = '__dev/';
@@ -21,15 +21,20 @@ gulp.task('javascript', () => {
   // Core scripts (core.min.js)
   gulp.src([`${dev}js/__setup.js`, `${dev}js/core/*.js`])
     .pipe(plumber())
-    .pipe(concat('core.js'))
-    .pipe(gulp.dest(`${dist}js/`))
-    .pipe(rename('core.es5.js'))
+    .pipe(
+      webpack({
+        watch: false,
+        mode: 'production',
+        output: {
+          filename: 'core.webpack.js'
+        }
+      })
+    )
     .pipe(babel({
       presets: ['env']
     }))
-    .pipe(gulp.dest(`${dist}js/`))
-    .pipe(rename('core.min.js'))
     .pipe(uglify())
+    .pipe(rename('core.min.js'))
     .pipe(gulp.dest(`${dist}js/`));
 
   // Inline scripts
@@ -41,7 +46,6 @@ gulp.task('javascript', () => {
     .pipe(uglify())
     .pipe(gulp.dest(`${dist}js/`));
 });
-
 
 // CSS compiler
 gulp.task('scss', () => {
@@ -111,10 +115,9 @@ gulp.task('default', ['scss', 'javascript', 'images', 'html'], () => {
   gulp.watch([`${dev}html/**/*`], ['html']);
 });
 
-
 // Custom compiling layouts
 console.log(`\x1b[33m --------------------------------------------`);
-console.log(`  PybChat v1.0`);
+console.log(`  PybChat v1.1`);
 console.log(` --------------------------------------------\x1b[0m`);
 
 // Customised SCSS error messages

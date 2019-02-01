@@ -7,8 +7,7 @@ pre.code {
   text-align: left;
   background: darken($background, 8%);
   color: lighten($text, 15%);
-  padding: 1.2em 1.4em;
-  padding-left: 4em;
+  padding: 1.3em 2em;
   font-size: 1rem;
   counter-reset: line;
   white-space: pre-wrap;
@@ -65,6 +64,10 @@ pre.code {
       font-weight: inherit;
       font-style: inherit;
       color: #5f9ea0;
+
+      span {
+        color: lighten($text, 15%);
+        }
       }
     }
 

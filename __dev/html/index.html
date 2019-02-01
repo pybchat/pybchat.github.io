@@ -4,7 +4,7 @@
 <include src="templates/meta.html" title="PybChat - your local digital meetup" description="Local developer, designer and digital meetups, pushing for more collaboration and better networking in the digital community" />
 </head>
 <body>
-<include src="templates/header.html" />
+<!-- include src="templates/header.html" /-->
 <div id="content">
   <div class="width">
     <div class="content padded readmore text-content">
@@ -16,18 +16,11 @@
 
       <main>
         <section class="code-wrapper">
-          <pre class="code javascript"><code><span class="var">let</span> <span class="func">readable_date</span> = (d) <span class="var">=&gt;</span> {</code>
-<code>  <span class="var">let</span> _date = <span class="var">new</span> <span class="new">Date</span>(<span class="new">Date</span>.<span class="inb">parse</span>(d));</code>
-<code>  <span class="var">return</span> <span class="obj">_date</span>.<span class="func">toDateString</span>()</code>
-<code>};</code>
-<code></code>
-<code><span class="var">function</span> <span class="func">Meeting</span>(location, d) {</code>
-<code>  <span class="obj">document</span>.<span class="obj">write</span>(<em>`The next meeting is on <span class="lit">${</span><span class="func">readable_date</span>(</em>d<em>)<span class="lit">}</span> at <span class="lit">${</span>location<span class="lit">}</span>`</em>);</code>
-<code>}</code>
-<code></code>
-<code><span class="var">let</span> next_meeting = <span class="var">new</span> <span class="new">Meeting</span>(<em>'TBA'</em>, <em>'1970-01-01'</em>);</code>
-<code class="comment">&gt;&gt; The next meeting is on Thu Jan 01 1970 at TBA</code>
-</pre>
+          <pre class="code javascript"><span class="comment">//-> The next meeting is on Thu Jan 01 1970 at TBA</span></pre>
+        </section>
+        
+        <section class="code-wrapper">
+          <pre id="typer" class="code javascript" style="min-height: 13.5em"></pre>
         </section>
 
         <section class="intro-copy">
@@ -41,6 +34,8 @@
   </div>
 
 <include src="templates/footer.html" />
+
+<script src="/js/core.min.js"></script>
 </div>
 </body>
 </html>
