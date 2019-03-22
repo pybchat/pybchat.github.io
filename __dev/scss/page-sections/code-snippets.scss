@@ -12,6 +12,7 @@ pre.code {
   counter-reset: line;
   white-space: pre-wrap;
   border-radius: 0.4rem;
+  user-select: none;
 
   code {
     font-family: inherit;
@@ -19,6 +20,7 @@ pre.code {
     line-height: 1.2em;
     height: 1.2em;
     white-space: pre-wrap;
+    padding-left: 2em;
 
     &:before {
       counter-increment: line;

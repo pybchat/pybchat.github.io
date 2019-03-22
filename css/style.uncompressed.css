@@ -180,13 +180,18 @@ pre.code {
   font-size: 1rem;
   counter-reset: line;
   white-space: pre-wrap;
-  border-radius: 0.4rem; }
+  border-radius: 0.4rem;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none; }
   pre.code code {
     font-family: inherit;
     position: relative;
     line-height: 1.2em;
     height: 1.2em;
-    white-space: pre-wrap; }
+    white-space: pre-wrap;
+    padding-left: 2em; }
     pre.code code:before {
       counter-increment: line;
       content: counter(line);
