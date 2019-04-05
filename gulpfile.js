@@ -19,7 +19,8 @@ const dist = '';
 // JavaScript compiler
 gulp.task('javascript', () => {
   // Core scripts (core.min.js)
-  gulp.src([`${dev}js/__setup.js`, `${dev}js/core/*.js`])
+  gulp
+    .src([`${dev}js/__setup.js`, `${dev}js/core/*.js`])
     .pipe(plumber())
     .pipe(
       webpack({
@@ -30,81 +31,81 @@ gulp.task('javascript', () => {
         }
       })
     )
-    .pipe(babel({
-      presets: ['env']
-    }))
+    .pipe(
+      babel({
+        presets: ['env']
+      })
+    )
     .pipe(uglify())
     .pipe(rename('core.min.js'))
     .pipe(gulp.dest(`${dist}js/`));
 
   // Inline scripts
-  gulp.src(`${dev}inlinejs/*.js`)
+  gulp
+    .src(`${dev}inlinejs/*.js`)
     .pipe(plumber())
-    .pipe(babel({
-      presets: ['env']
-    }))
+    .pipe(
+      babel({
+        presets: ['env']
+      })
+    )
     .pipe(uglify())
     .pipe(gulp.dest(`${dist}js/`));
 });
 
 // CSS compiler
 gulp.task('scss', () => {
-  gulp.src(`${dev}scss/style.scss`)
-    .pipe(plumber((e) => scss_error(e)))
+  gulp
+    .src(`${dev}scss/style.scss`)
+    .pipe(plumber(e => scss_error(e)))
     .pipe(sass())
     .pipe(autoprefixer())
-    .pipe(rename('style.uncompressed.css'))
-    .pipe(gulp.dest(`${dist}css/`))
     .pipe(rename('style.css'))
     .pipe(minifycss())
     .pipe(gulp.dest(`${dist}css/`));
 
-  gulp.src([
-      `${dev}scss/noscript.scss`,
-      `${dev}scss/offline.scss`,
-      `${dev}scss/print.scss`
-    ])
-    .pipe(plumber((e) => scss_error(e)))
+  gulp
+    .src([`${dev}scss/noscript.scss`, `${dev}scss/offline.scss`, `${dev}scss/print.scss`])
+    .pipe(plumber(e => scss_error(e)))
     .pipe(sass())
     .pipe(autoprefixer())
     .pipe(minifycss())
-    .pipe(gulp.dest(`${dist}css/`))
+    .pipe(gulp.dest(`${dist}css/`));
 });
 
 gulp.task('images', () => {
-  gulp.src([`${dev}images/**/*.png`, `${dev}images/**/*.jpg`, `!${dev}images/sprites/**/*`])
+  gulp
+    .src([`${dev}images/**/*.png`, `${dev}images/**/*.jpg`, `!${dev}images/sprites/**/*`])
     .pipe(webp())
     .pipe(gulp.dest(`${dist}images/`));
 
-  gulp.src([`${dev}images/**/*`, `!${dev}images/sprites/**/*`])
-    .pipe(plumber())
-    .pipe(gulp.dest(`${dist}images/`))
+  gulp.src([`${dev}images/**/*`, `!${dev}images/sprites/**/*`]).pipe(plumber()).pipe(gulp.dest(`${dist}images/`));
 
   // Create SVG sprites
-  gulp.src([`${dev}images/sprites/**/*`])
+  gulp
+    .src([`${dev}images/sprites/**/*`])
     .pipe(plumber())
-    .pipe(svgsprite({
-      mode: {
-        symbol: {
-          render: {
-            css: false,
-            scss: false
-          },
-          dest: '',
-          prefix: '.sprite-%s',
-          sprite: 'icons.svg',
-          example: false
+    .pipe(
+      svgsprite({
+        mode: {
+          symbol: {
+            render: {
+              css: false,
+              scss: false
+            },
+            dest: '',
+            prefix: '.sprite-%s',
+            sprite: 'icons.svg',
+            example: false
+          }
         }
-      }
-    }))
+      })
+    )
     .pipe(gulp.dest(`${dist}images/`));
 });
 
-gulp.task('html', function() {
-  gulp.src(`${dev}html/index.html`)
-    .pipe(plumber())
-    .pipe(include())
-    .pipe(gulp.dest(`${dist}`));
+gulp.task('html', function(){
+  gulp.src(`${dev}html/index.html`).pipe(plumber()).pipe(include()).pipe(gulp.dest(`${dist}`));
 });
 
 // Autmate tasks
@@ -121,7 +122,7 @@ console.log(`  PybChat v1.1`);
 console.log(` --------------------------------------------\x1b[0m`);
 
 // Customised SCSS error messages
-function scss_error(e) {
+function scss_error(e){
   console.log(`\x1b[41m WARNING \x1b[0m`);
   console.log(` Error: ${e.messageOriginal} (line ${e.line} column ${e.column})`);
   console.log(` \x1b[33m${e.relativePath}\x1b[0m`);

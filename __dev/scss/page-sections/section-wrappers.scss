@@ -20,3 +20,13 @@
     padding: 3.5em 0;
     }
   }
+
+.clear {
+  clear: both; // Older browser fix
+
+  &:after {
+    content: "";
+    display: block;
+    clear: both;
+    }
+  }

@@ -23,5 +23,5 @@ function Meeting(location, date){
 
 let nextMeeting = new Meeting('TBA', '1970-01-01')`;
 
-  new Typer(typeTextContent, typeTextWrapper, [30, 200], formatter).type();
+  new Typer(typeTextContent, typeTextWrapper, [30, 150], formatter).type();
 })();

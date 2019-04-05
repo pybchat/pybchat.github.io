@@ -7,6 +7,7 @@
 // Load in defaults
 // -----------------------------------------
 @import '__defaults/__init';
+@import 'page-sections/headers';
 
 @page {
   size: A4;
@@ -21,4 +22,48 @@ body {
   color: #000;
   font-size: 1em;
   line-height: 1.5em;
+  }
+
+#content {
+  padding: 3em;
+  }
+
+.main-logo {
+  width: 8em;
+  margin: 0 0 2rem;
+  }
+
+.intro-copy,
+.rsvp-grid .grid-item {
+  margin: 0 0 2rem;
+  }
+
+h1, h2, h3 {
+  line-height: 1.2em;
+  margin: 0 0 0.7rem;
+  }
+
+h1, h2 {
+  font-size: 1.8em;
+  }
+
+h3 {
+  font-size: 1.4em;
+  }
+
+p {
+  margin: 0.7rem 0;
+  }
+
+.code-wrapper,
+.social-icons {
+  display: none;
+  }
+
+footer {
+  margin: 2rem 0 0;
+  padding: 1rem 0 0;
+  border-top: 1px solid lighten($text, 55%);
+  color: lighten($text, 35%);
+  font-size: 0.9em;
   }

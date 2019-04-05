@@ -32,14 +32,12 @@ html, body {
 
 @include bounds($hd, infinity) {
   html {
-    font-size: calc(14px + 0.12vw);
+    font-size: calc(14px + 0.135vw);
     }
   }
 
 @include bounds(0, $desktop) {
-  html {
-    font-size: 15px;
-    }
+  
   }
 
 @include bounds(0, $mobile) {
