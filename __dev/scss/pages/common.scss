@@ -18,13 +18,6 @@ html, body {
   background: darken($background, 5%);
   }
 
-#content {
-  background: $background;
-  color: $text;
-  min-height: 100vh;
-  }
-
-
 
 
 // Styles for smaller screens
@@ -34,12 +27,4 @@ html, body {
   html {
     font-size: calc(14px + 0.135vw);
     }
-  }
-
-@include bounds(0, $desktop) {
-  
-  }
-
-@include bounds(0, $mobile) {
-  // add any mobile-related styles here
   }
